@@ -1,60 +1,113 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
-<title> attractive calculator</title>
-<link rel="stylesheet" href="calculator.css">
-    </head>
+  <head>
+    <title>Attractive Calculator</title>
+    <link rel="stylesheet" href="calculator.css">
 
-   <body>
+    <style>
+      /* Basic reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-<p style="font-size:40px;">HTML Calculator</p> 
-<p style="font-size:25px;">(Edited) By ------ -------</p>
-  
+      /* Center the entire body content */
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Full height of the viewport */
+        background-color: #f0f0f0; /* Light background color */
+        font-family: Arial, sans-serif;
+      }
 
-      </div>
-   </body> 
+      /* Style for the calculator form */
+      .calci {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+      }
 
-    <form name="form1" class="calci" action="calculator.html" method="POST">
-<input type="text" name="answer" id="display">
-<br></br>
+      /* Input display for the calculator */
+      #display {
+        width: 100%;
+        height: 50px;
+        font-size: 24px;
+        text-align: right;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+      }
 
+      /* Style for calculator buttons */
+      .button, .operator {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        margin: 5px;
+        border: none;
+        border-radius: 5px;
+        background-color: #f0f0f0;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
 
-<input type="button" value="c" onclick="form1.answer.value=''" class="button">
+      .button:hover, .operator:hover {
+        background-color: #ddd;
+      }
 
+      .operator {
+        background-color: #ffcc00;
+      }
 
-<input type="button"  class= "button"value="<" onclick="form1.answer.value=form1.answer.value.substring(0,form1.answer.value.length*1-1)" >
-<input type="button"  class= "button"value="00" onclick="form1.answer.value+='00'">
+      /* Title styles */
+      p {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
 
-<input type="button"  class= "operator"value="/" onclick="form1.answer.value+='/'">
-<br></br>
-<input type="button" class= "button" value="7" onclick="form1.answer.value+='7'">
-<input type="button"  class= "button"value="8" onclick="form1.answer.value+='8'">
-<input type="button"  class= "button"value="9" onclick="form1.answer.value+='9'">
+  <body>
+    <div>
+      <p style="font-size: 40px;">HTML Calculator</p>
+      <p style="font-size: 25px;">(Edited) By ------ -------</p>
 
-<input type="button"  class= "operator"value="*" onclick="form1.answer.value+='*'">
-<br></br>
+      <form name="form1" class="calci" action="calculator.html" method="POST">
+        <input type="text" name="answer" id="display" disabled>
+        <br>
 
+        <input type="button" value="c" onclick="form1.answer.value=''" class="button">
+        <input type="button" value="<" onclick="form1.answer.value=form1.answer.value.substring(0,form1.answer.value.length-1)" class="button">
+        <input type="button" value="00" onclick="form1.answer.value+='00'" class="button">
+        <input type="button" value="/" onclick="form1.answer.value+='/'" class="operator">
+        <br>
 
-<input type="button" class= "button" value="4" onclick="form1.answer.value+='4'">
-<input type="button"  class= "button"value="5" onclick="form1.answer.value+='5'">
+        <input type="button" value="7" onclick="form1.answer.value+='7'" class="button">
+        <input type="button" value="8" onclick="form1.answer.value+='8'" class="button">
+        <input type="button" value="9" onclick="form1.answer.value+='9'" class="button">
+        <input type="button" value="*" onclick="form1.answer.value+='*'" class="operator">
+        <br>
 
-<input type="button"  class= "button"value="6" onclick="form1.answer.value+='6'">
+        <input type="button" value="4" onclick="form1.answer.value+='4'" class="button">
+        <input type="button" value="5" onclick="form1.answer.value+='5'" class="button">
+        <input type="button" value="6" onclick="form1.answer.value+='6'" class="button">
+        <input type="button" value="-" onclick="form1.answer.value+='-'" class="operator">
+        <br>
 
-<input type="button"  class= "operator"value="-" onclick="form1.answer.value+='-'">
-<br></br>
-<input type="button"  class= "button"value="1" onclick="form1.answer.value+='1'">
-<input type="button"  class= "button"value="2" onclick="form1.answer.value+='2'">
+        <input type="button" value="1" onclick="form1.answer.value+='1'" class="button">
+        <input type="button" value="2" onclick="form1.answer.value+='2'" class="button">
+        <input type="button" value="3" onclick="form1.answer.value+='3'" class="button">
+        <input type="button" value="+" onclick="form1.answer.value+='+'" class="operator">
+        <br>
 
-<input type="button"  class= "button"value="3" onclick="form1.answer.value+='3'">
-
-<input type="button"  class= "operator"value="+" onclick="form1.answer.value+='+'">
-<br></br>
-
-<input type="button" class= "button" value="0" onclick="form1.answer.value+='0'" id="zero">
-
-<input type="button" class= "button" value="." onclick="form1.answer.value+='.'">
-
-<input type="button"  class= "operator" value="=" onclick="form1.answer.value=eval(form1.answer.value)">
- </form>
-
+        <input type="button" value="0" onclick="form1.answer.value+='0'" id="zero" class="button">
+        <input type="button" value="." onclick="form1.answer.value+='.'" class="button">
+        <input type="button" value="=" onclick="form1.answer.value=eval(form1.answer.value)" class="operator">
+      </form>
+    </div>
+  </body>
 </html>
